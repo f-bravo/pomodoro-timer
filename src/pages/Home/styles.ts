@@ -54,6 +54,11 @@ const BaseInput = styled.input`
 
 export const TaskInput = styled(BaseInput)`
   flex: 1; // Aumenta e diminui p cabe no espaço que tiver
+
+  // P/ retirar a flecha do input do google chrome
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
 `
 
 export const MinuteAmountInput = styled(BaseInput)`
