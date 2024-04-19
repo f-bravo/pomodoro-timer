@@ -21,7 +21,7 @@ export const HistoryList = styled.div`
 
   table {
     width: 100%;
-    border-collapse: collapse; // faz com que existe apenas uma borda entre eles e não a soma de cada borda
+    border-collapse: collapse; // faz com que exista apenas uma borda entre os campos e não a soma de cada borda
     min-width: 600px; // QUando a tela for menor força o scroll a aparecer
 
     th {
