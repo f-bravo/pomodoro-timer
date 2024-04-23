@@ -17,79 +17,8 @@ export const HomeContainer = styled.main`
   }
 `
 
-export const FormContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  color: ${(props) => props.theme['gray-100']};
-  font-size: 1.25rem;
-  font-weight: bold;
-  flex-wrap: wrap; // Ao diminuir a tela quebrar o campo em linhas 
-`
-
-// Herança de estilização:
-// Input base com as configurações que estão em ambos inputs
-const BaseInput = styled.input`
-  background: transparent;
-  height: 2.5rem;
-  border: 0;
-  border-bottom: 2px solid ${(props) => props.theme['gray-500']};
-  font-weight: bold;
-  font-size: 1.25rem; // O Input n herda o fontsize do Container
-  padding: 0 0.5rem;
-  color: ${(props) => props.theme['gray-100']};
-
-  &:focus {
-    box-shadow: none; //retira a sombra em volta do elemento selecionado
-    border-color: ${(props) => props.theme['green-500']};
-  }
-
-  &::placeholder {
-    color: ${(props) => props.theme['gray-500']};
-  }
-`
-
-export const TaskInput = styled(BaseInput)`
-  flex: 1; // Aumenta e diminui p cabe no espaço que tiver
-
-  // P/ retirar a flecha do input do google chrome
-  &::-webkit-calendar-picker-indicator {
-    display: none !important;
-  }
-`
-
-export const MinuteAmountInput = styled(BaseInput)`
-  width: 4rem;
-`
-
-export const CountdownContainer = styled.div`
-  font-family: 'Roboto Mono', monospace;
-  font-size: 10rem;
-  line-height: 8rem;
-  color: ${(props) => props.theme['gray-100']};
-
-  display: flex;
-  gap: 1rem;
-
-  span {
-    background: ${(props) => props.theme['gray-700']};
-    padding: 2rem 1rem;
-    border-radius: 8px;
-  }
-`
-
-export const Separator = styled.div`
-  padding: 2rem 0;
-  color: ${(props) => props.theme['green-500']};
-  width: 4rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-`
-export const StartCountdownButton = styled.button`
+// Butão base do Start e Stop button para o countdown
+export const BaseCountdownButton = styled.button`
   width: 100%;
   padding: 1rem;
   border: none;
@@ -101,22 +30,31 @@ export const StartCountdownButton = styled.button`
   justify-content: center;
   gap: 0.5rem;
 
-  cursor: pointer;
-  
   color: ${(props) => props.theme['gray-100']};
-  background: ${(props) => props.theme['green-500']};
+
+  cursor: pointer;
 
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
   }
+`
+
+// Butão de Start - só precisou colcoar as cores
+export const StartCountDownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['green-500']};
 
   // Quando o button não estiver habilitado não faça hover.
   &:not(:disabled):hover {
     background: ${(props) => props.theme['green-700']};
-  
-  
-}
+  }    
 `
 
+export const StopCountDownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['red-500']};
 
+  // Quando o button não estiver habilitado não faça hover.
+  &:not(:disabled):hover {
+    background: ${(props) => props.theme['red-700']};
+  }    
+`
